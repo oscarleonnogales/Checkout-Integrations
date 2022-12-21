@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://js.braintreegateway.com/web/dropin/1.33.7/js/dropin.min.js"></script>
+    <title>Braintree Test Integration</title>
+  </head>
+  <body>
+    <div id="root">
+      <div class="App">
+        <h1>Checkout Integration with Braintree!</h1>
+        <div class="cart">
+          <h2>Your Cart</h2>
+          <div class="product">
+            <div>Computer</div>
+            <div>1</div>
+            <div>$1500</div>
+          </div>
+          <div class="cart-total">Total: $1500</div>
+        </div>
+        <div id="dropin-container"></div>
+
+        <script type="text/javascript">
+          fetch("http://localhost:3000/client_token", { method: "GET" })
+            .then((res) => res.json())
+            .then((token) => {
+              console.log(token);
+              braintree.dropin.create(
+                {
+                  authorization: token,
+                  container: "#dropin-container",
+                },
+                (error, dropinInstance) => {
+                  console.log(error);
+                }
+              );
+            });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
