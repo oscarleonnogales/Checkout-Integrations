@@ -26,6 +26,7 @@ Tested 3 different payment methods to see the pros and cons between the three. F
   - Has official npm packages for all the popular frameworks.
   - Lots of sample integrations on their public Github
   - Live examples on Codesandbox
+  - Very intuitive and easy-to-use developer dashboard, could see instantaneous data when I made requests.
 
 - Cons
   - Requires both a server and client-side integration.
